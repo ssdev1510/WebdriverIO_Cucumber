@@ -1,0 +1,13 @@
+{
+    "cucumberautocomplete.steps": [
+       
+        "./src/stepDefinitions/*.js"
+    ],
+    "cuke_step_definition_file_path": [
+        
+        "./src/stepDefinitions/*.js"
+    ],
+    
+    "cucumberautocomplete.strictGherkinCompletion": true
+    
+}
