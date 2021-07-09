@@ -1,3 +1,6 @@
+const { generate } = require('multiple-cucumber-html-reporter');
+const { removeSync } = require('fs-extra');
+
 exports.config = {
     //
     // ====================
@@ -114,7 +117,19 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['chromedriver','docker'],
-    
+    capabilities: [{
+      maxInstances: 1,
+      browserName: 'chrome',
+      acceptInsecureCerts: true,
+      'goog:chromeOptions': {
+          args: [
+              '--no-sandbox',
+              '--disable-infobars',
+              '--disable-gpu',
+              '--window-size=1440,735'
+          ],
+      }
+  }],
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -136,7 +151,15 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     //reporters: [['allure', {outputDir: 'allure-results'}],'cucumber'],
-
+    //Cucumber HTML reporting.
+    reporters: [
+      [ 'cucumberjs-json', {
+              jsonFolder: 'reports/json/',
+              language: 'en',
+          },
+      ],
+  ],
+    
 
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
@@ -184,8 +207,9 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+     onPrepare: function (config, capabilities) {
+      removeSync('reports/');
+    },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -312,8 +336,15 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    // onComplete: function(exitCode, config, capabilities, results) {
-    // },
+    onComplete: function(exitCode, config, capabilities, results) {
+      generate({
+        // Required
+        // This part needs to be the same path where you store the JSON files
+        jsonDir: 'reports/json',
+        reportPath: 'reports/HTMLreport',
+        // for more options see https://github.com/wswebcreation/multiple-cucumber-html-reporter#options
+      });
+    },
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session

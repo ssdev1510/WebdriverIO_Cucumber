@@ -4,7 +4,9 @@
   "description": "Assesment",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio run ./wdio.conf.js"
+    "test": "npx wdio run ./wdio.conf.js",
+    "allure-report": "node_modules/.bin/allure generate --clean reports/allure-results && allure open",
+    "dockertest": "npm update && npm run test"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,8 @@
   },
   "homepage": "https://github.com/ssdev1510/WebdriverIO_Assignment#readme",
   "dependencies": {
-    "@wdio/cli": "^7.7.4"
+    "@wdio/cli": "^7.7.4",
+    "wdio-html-reporter": "^1.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
@@ -29,8 +32,10 @@
     "@wdio/local-runner": "^7.7.4",
     "@wdio/sync": "^7.7.4",
     "chromedriver": "^91.0.1",
+    "fs-extra": "^10.0.0",
+    "multiple-cucumber-html-reporter": "^1.18.0",
     "wdio-chromedriver-service": "^7.1.1",
-    "wdio-cucumber-reporter": "0.0.2",
+    "wdio-cucumberjs-json-reporter": "^4.0.0",
     "wdio-docker-service": "^3.1.2"
   }
 }
