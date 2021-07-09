@@ -1,0 +1,43 @@
+const CommonKeywords = require("../utils/CommonKeywords")
+/*
+* Sahil Singla- sahil.9singla@gmail.com
+* Date- 09/July/2021
+* Description- Economist Job Landing page object class.
+*/
+class JobsPagePO {
+
+    /**
+     * Defining Elements of Jobs landing page.
+     */
+    get jobPageLogoElement() { return $('.primary-logo img') }
+    get naviationBarElement() { return $("#primary-nav") }
+    get jobSearchFieldElement() { return $(".search__form") }
+    get browserJobSectorElement() { return $("section.browse.brick>div.brick__inner.cf") }
+
+    //verifying the jobs landing page render properly. @return > true/false
+    verifyJobsPage() {
+        let logoTitleValue = CommonKeywords.getAttributeValue(this.jobPageLogoElement, 'title');
+        return logoTitleValue;
+    }
+
+    //verifying navigation bar is present on jobs landing page. @return > true/false
+    verifyNavigationBar() {
+        let result = CommonKeywords.isElementDisplayed(this.naviationBarElement);
+        return result;
+    }
+
+    //verifying Job search field is present on jobs landing page. @return > true/false
+    verifyjobSearchField() {
+        let result = CommonKeywords.isElementDisplayed(this.jobSearchFieldElement);
+        return result;
+    }
+
+    //verifying Job Sector bar is present on jobs landing page. @return > true/false
+    verifybrowserJobSector() {
+        let result = CommonKeywords.isElementDisplayed(this.browserJobSectorElement);
+        return result;
+    }
+
+}
+
+module.exports = new JobsPagePO();
