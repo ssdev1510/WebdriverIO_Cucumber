@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx wdio run ./wdio.conf.js",
     "allure-report": "node_modules/.bin/allure generate --clean reports/allure-results && allure open",
-    "dockertest": "npm update && npm run test"
+    "dockertest": "npm update && npm run test && npm run allure-report"
   },
   "repository": {
     "type": "git",

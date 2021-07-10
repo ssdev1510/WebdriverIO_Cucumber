@@ -1,3 +1,4 @@
+const { Click, getPageTitle } = require("../utils/CommonKeywords")
 const CommonKeywords = require("../utils/CommonKeywords")
 /*
 * Sahil Singla- sahil.9singla@gmail.com
@@ -7,15 +8,21 @@ const CommonKeywords = require("../utils/CommonKeywords")
 class JobsPagePO {
 
     /**
-     * Defining Elements of Jobs landing page.
+     * Defining Page Locators
      */
     get jobPageLogoElement() { return $('.primary-logo img') }
     get naviationBarElement() { return $("#primary-nav") }
     get jobSearchFieldElement() { return $(".search__form") }
     get browserJobSectorElement() { return $("section.browse.brick>div.brick__inner.cf") }
+    get signInElement() { return $('//a[text()="Sign in"]') }
+    get createAccountElement() { return $('//a[text()="Create account"]') }
+    
+    /**
+     * Defining Page Action.
+     */
 
     //verifying the jobs landing page render properly. @return > true/false
-    verifyJobsPage() {
+    getJobsPageLogoTitle() {
         let logoTitleValue = CommonKeywords.getAttributeValue(this.jobPageLogoElement, 'title');
         return logoTitleValue;
     }
@@ -38,6 +45,15 @@ class JobsPagePO {
         return result;
     }
 
+    // Click the sign in link
+    clickSignInPageTitle() {
+        Click(this.signInElement); 
+    }
+
+    // Click Create account link.
+    clickCreateAccountPageTitle() {
+        Click(this.createAccountElement);
+    }
 }
 
 module.exports = new JobsPagePO();

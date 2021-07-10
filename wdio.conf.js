@@ -152,14 +152,20 @@ exports.config = {
     // see also: https://webdriver.io/docs/dot-reporter
     //reporters: [['allure', {outputDir: 'allure-results'}],'cucumber'],
     //Cucumber HTML reporting.
-    reporters: [
+  /*  reporters: [
       [ 'cucumberjs-json', {
-              jsonFolder: 'reports/json/',
+              jsonFolder: 'reports/test/json/',
               language: 'en',
           },
       ],
   ],
-    
+*/
+  //Allure reporting
+  reporters: [['allure', {
+    outputDir: 'reports/allure-results',
+    disableWebdriverStepsReporting: false,
+    disableWebdriverScreenshotsReporting: true,
+}]],
 
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
@@ -207,9 +213,9 @@ exports.config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-     onPrepare: function (config, capabilities) {
+   /*  onPrepare: function (config, capabilities) {
       removeSync('reports/');
-    },
+    },*/
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -336,15 +342,15 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    onComplete: function(exitCode, config, capabilities, results) {
+   /* onComplete: function(exitCode, config, capabilities, results) {
       generate({
         // Required
         // This part needs to be the same path where you store the JSON files
-        jsonDir: 'reports/json',
+        jsonDir: 'reports/test/json',
         reportPath: 'reports/HTMLreport',
         // for more options see https://github.com/wswebcreation/multiple-cucumber-html-reporter#options
       });
-    },
+    },*/
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session
