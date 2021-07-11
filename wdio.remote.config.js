@@ -3,7 +3,7 @@ const { config } = require('./wdio.conf.js')
 exports.config = {
     ...config,
     ...{
-      services: ['chromedriver'],
+      services: ['selenium-standalone'],
       capabilities: [{
         maxInstances: 1,
         browserName: 'chrome',
@@ -12,13 +12,11 @@ exports.config = {
             args: [
                 '--no-sandbox',
                 '--disable-infobars',
-                //'--headless',
+                '--headless',
                 '--disable-gpu',
-               // '--window-size=1440,735'
+                '--window-size=1440,735'
             ],
         }
     }]
     }
 }
-
-

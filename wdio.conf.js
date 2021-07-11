@@ -1,5 +1,7 @@
 const { generate } = require('multiple-cucumber-html-reporter');
 const { removeSync } = require('fs-extra');
+//const { addFeature } = require('@wdio/allure-reporter').default
+const allure = require('@wdio/allure-reporter').default;
 
 exports.config = {
     //
@@ -116,7 +118,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-   services: ['chromedriver','docker'],
+   /*services: ['chromedriver','docker'],
     capabilities: [{
       maxInstances: 1,
       browserName: 'chrome',
@@ -125,12 +127,12 @@ exports.config = {
           args: [
               '--no-sandbox',
               '--disable-infobars',
-              '--headless',
+             // '--headless',
               '--disable-gpu',
-              '--window-size=1440,735'
+             // '--window-size=1440,735'
           ],
       }
-  }],
+  }],*/
 
 
     // Framework you want to run your specs with.
@@ -178,7 +180,7 @@ exports.config = {
         // <string[]> (file/dir) require files before executing features
         require: ['./src/stepDefinitions/*.js'],
         // <boolean> show full backtrace for errors
-      //  backtrace: false,
+        backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
       //  requireModule: [],
         // <boolean> invoke formatters without executing steps
@@ -188,19 +190,19 @@ exports.config = {
         // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
         format: ['pretty'],
         // <boolean> hide step definition snippets for pending steps
-     //   snippets: true,
+        snippets: true,
         // <boolean> hide source uris
-     //   source: true,
+        source: true,
         // <string[]> (name) specify the profile to use
      //   profile: [],
         // <boolean> fail if there are any undefined or pending steps
-     //   strict: false,
+        strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
         tagExpression: '',
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
-    //    ignoreUndefinedDefinitions: false
+        ignoreUndefinedDefinitions: false
     },
     
     //
@@ -262,8 +264,9 @@ exports.config = {
      * @param {String}                   uri      path to feature file
      * @param {GherkinDocument.IFeature} feature  Cucumber feature object
      */
-    // beforeFeature: function (uri, feature) {
-    // },
+    beforeFeature: function (uri, feature) {
+      allure.addFeature(feature.name)
+    },
     /**
      *
      * Runs before a Cucumber Scenario.
@@ -290,8 +293,9 @@ exports.config = {
      * @param {number}             result.duration duration of scenario in milliseconds
      */
      afterStep: function (step, scenario, result) {
+    if(error) {
       let date = Date.now()
-      browser.saveScreenshot('reports/screenshots/screenshot-'+date+'.png')
+      browser.saveScreenshot('reports/screenshots/screenshot-'+date+'.png')}
     },
     /**
      *
