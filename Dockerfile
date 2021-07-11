@@ -1,6 +1,3 @@
-FROM timbru31/java-node:latest
+FROM node:latest
 WORKDIR /app
 ADD . /app
-
-RUN npm install
-RUN npm update
