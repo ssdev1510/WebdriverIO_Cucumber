@@ -116,7 +116,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver','docker'],
+   services: ['chromedriver','docker'],
     capabilities: [{
       maxInstances: 1,
       browserName: 'chrome',
@@ -125,11 +125,14 @@ exports.config = {
           args: [
               '--no-sandbox',
               '--disable-infobars',
+              '--headless',
               '--disable-gpu',
               '--window-size=1440,735'
           ],
       }
   }],
+
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -193,7 +196,7 @@ exports.config = {
         // <boolean> fail if there are any undefined or pending steps
      //   strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tagExpression: '@Test',
+        tagExpression: '',
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
@@ -286,8 +289,10 @@ exports.config = {
      * @param {string}             result.error    error stack if scenario failed
      * @param {number}             result.duration duration of scenario in milliseconds
      */
-    // afterStep: function (step, scenario, result) {
-    // },
+     afterStep: function (step, scenario, result) {
+      let date = Date.now()
+      browser.saveScreenshot('reports/screenshots/screenshot-'+date+'.png')
+    },
     /**
      *
      * Runs before a Cucumber Scenario.

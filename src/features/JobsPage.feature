@@ -4,7 +4,7 @@ Description:
 1. Verifing Jobs page renders correctly with the components visible > Navigation Bar, Search Fields, Sector Lists. /n
 2. Verifying the both 'Sign in' and 'Create account' links go to their respective pages. 
  
-@Smoke @All @Test
+@Smoke @All
 Scenario: Verify the different components.
   Given User hit the baseUrl "/"
   When User on Economist Jobs page

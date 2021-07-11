@@ -20,11 +20,11 @@ class NavigationBarPO {
     //Click on menu bar and verifing the navigated page title
     clickCheckNavBarLinks() {
         let count = 0;
-        let pageTitle = [];
+        let pageUrl = ["https://jobs.economist.com/", "https://jobs.economist.com/jobs/", "https://jobs.economist.com/newalert/", "https://jobs.economist.com/employers/", "https://jobs.economist.com/careers/" ];
 
         for (let i = this.navBarElements.length - 2; i >= 0; i--) {
             Click(this.navBarElements[i]);
-            if (browser.getTitle() !== null) {
+            if (pageUrl.includes(browser.getUrl())) {
                 console.log(this.navBarElements[i].getText() + " link is working fine.");
                 count++;
                 browser.back();

@@ -4,12 +4,9 @@ Description:
 1. Verifying each of the links in the navigation bar is functional 
 2. Verifying each link goes to the correct page. 
  
-@All @Smoke 
+@All @Smoke @Test
 Scenario: Verify the Main Navigation Bar.
   Given User hit the baseUrl "/"
   When User on Economist Jobs page
   And User click on navigation bar menu links
   Then Verify user navigate to correct page
-   
-
- 

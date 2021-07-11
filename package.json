@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx wdio run ./wdio.conf.js",
+    "local-test": "npx wdio run ./wdio.local.config.js && npm run allure-report",
     "allure-report": "node_modules/.bin/allure generate --clean reports/allure-results && allure open",
     "dockertest": "npm update && npm run test && npm run allure-report"
   },
@@ -30,6 +31,7 @@
     "@wdio/allure-reporter": "^7.7.3",
     "@wdio/cucumber-framework": "^7.7.3",
     "@wdio/local-runner": "^7.7.4",
+    "@wdio/selenium-standalone-service": "^7.7.4",
     "@wdio/sync": "^7.7.4",
     "chromedriver": "^91.0.1",
     "fs-extra": "^10.0.0",
