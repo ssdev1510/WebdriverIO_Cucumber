@@ -35,7 +35,7 @@ WebdriverIO with Cucumber Framework using JavaScript Language.
   >Where pageObjects folder js files defines the page locators and page actions.
   >Test scenarios & Assertion are defined in stepDefinitions folder.
   >Business features are defined in feature folder.
-  
+
 -Currently, test are running only for Chrome browser.
 
 ## **Steps to run at your system/container:**
@@ -50,7 +50,15 @@ WebdriverIO with Cucumber Framework using JavaScript Language.
 
 ## **Steps to run at Docker Container:**
 **Prerequisite:** Docker, Node, Git installation.
-TBD
+- Run "git clone <https://github.com/ssdev1510/WebdriverIO_Cucumber.git>" to Clone the repository.
+- Run "cd WebdriverIO_Cucumber" to Go inside directory.
+- Run "sudo docker build -t wdio_test_image ." to Build docker image from Dockerfile.
+- Run "docker run --name wdio_container_name -it wdio_test_image /bin/bash" to Run docker container.
+- >Inside docker container > Run "npm run docker-test"
+- >Inside docker container > Check the output in console > then Run "exit" to come out from docker container.
+- Run "docker rm wdio_container_name" to Remove docker container.
+- Run "docker rmi wdio_test_image" to  Remove docker image.
+- Currently report not getting generated through docker.doc
 
 ## **Reports:** 
   **This will generate two visual reports:**

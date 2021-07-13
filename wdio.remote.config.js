@@ -15,9 +15,9 @@ exports.config = {
             args: [
                 '--no-sandbox',
                 '--disable-infobars',
-             //   '--headless',
+                '--headless',
                 '--disable-gpu',
-              //  '--window-size=1440,735'
+                '--window-size=1440,735'
             ],
         }
     }]

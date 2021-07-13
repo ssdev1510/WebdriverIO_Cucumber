@@ -17,7 +17,7 @@ Examples:
   | NGO        |
   | Government |
 
-@All @Smoke
+@Smoke
  Scenario Outline: Verify the job details page.
   Given User hit the baseUrl "/"
   When User on Economist Jobs page

@@ -23,6 +23,7 @@ When(/^User click on job from the first job list$/, () => {
 	expectChai(JsPO.sectorJobListElements[1])
 });
 
+
 Then(/^Verify Job Details are getting display$/, () => {
     expectChai(JsPO.isJobDetailsDisplayed()).to.equal(true);
 

@@ -1,5 +1,5 @@
 {
-  "name": "webdriverio_assignment",
+  "name": "webdriverio_Cucumber",
   "version": "1.0.0",
   "description": "Assesment",
   "main": "index.js",
@@ -11,17 +11,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ssdev1510/WebdriverIO_Assignment.git"
+    "url": "git+https://github.com/ssdev1510/WebdriverIO_Cucumber.git"
   },
   "author": "Sahil Singla",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ssdev1510/WebdriverIO_Assignment/issues"
+    "url": "https://github.com/ssdev1510/WebdriverIO_Cucumber/issues"
   },
-  "homepage": "https://github.com/ssdev1510/WebdriverIO_Assignment#readme",
+  "homepage": "https://github.com/ssdev1510/WebdriverIO_Cucumber#readme",
   "dependencies": {
     "@wdio/cli": "^7.7.4",
-    "update": "^0.7.4",
     "wdio-html-reporter": "^1.0.2"
   },
   "devDependencies": {
@@ -34,9 +33,9 @@
     "@wdio/local-runner": "^7.7.4",
     "@wdio/selenium-standalone-service": "^7.7.4",
     "@wdio/sync": "^7.7.4",
-    "chai": "^4.3.4",
     "chromedriver": "^91.0.1",
     "fs-extra": "^10.0.0",
+    "chai": "^4.3.4",
     "multiple-cucumber-html-reporter": "^1.18.0",
     "wdio-chromedriver-service": "^7.1.1",
     "wdio-cucumberjs-json-reporter": "^4.0.0",
