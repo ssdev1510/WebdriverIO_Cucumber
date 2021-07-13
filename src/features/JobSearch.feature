@@ -31,7 +31,7 @@ Examples:
   | NGO        |
   | Government |
 
-@All 
+@All
  Scenario: Verify user is able to search job and page display relevant result.
   Given User hit the baseUrl "/"
   When User on Economist Jobs page
@@ -43,3 +43,12 @@ Examples:
   | JobTypes   | Country             |
   | NGO        | United Kingdom (GB) |
   | Government | United Kingdom (GB) |
+
+
+  @All @Negative
+ Scenario: Verify user is see 0 result found when user enter incorrect data in job search filed.
+  Given User hit the baseUrl "/"
+  When User on Economist Jobs page
+  And User Enter job details field "xyzJob", Country "xyzCountry"
+  And User Clicks on search button
+  Then Verify Zero results are getting display

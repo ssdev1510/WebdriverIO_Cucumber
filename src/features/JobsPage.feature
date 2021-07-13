@@ -5,7 +5,7 @@ Description:
 2. Verifying the both 'Sign in' and 'Create account' links go to their respective pages. 
  
 @Smoke @All
-Scenario: Verify the different components.
+Scenario: Verify the different page components- Navigation Bar, Search Fields, Sector Lists .
   Given User hit the baseUrl "/"
   When User on Economist Jobs page
   Then Verify that Main Navigation Bar component is visible

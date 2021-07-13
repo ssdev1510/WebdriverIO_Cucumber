@@ -1,4 +1,5 @@
 import { Given, When, Then } from '@cucumber/cucumber';
+const expectChai = require('chai').expect;
 
 const NbPO = require("../pageObjects/NavigationBarPO");
 let result = false;
@@ -10,7 +11,7 @@ When(/^User click on navigation bar menu links$/, () => {
 });
 
 Then(/^Verify user navigate to correct page$/, () => {
-	expect(NbPO.clickCheckNavBarLinks()).toEqual(true);
+	expectChai(NbPO.clickCheckNavBarLinks()).to.equal(true);
 
     console.log("Verified navigation bar menu links working fine.");
 });

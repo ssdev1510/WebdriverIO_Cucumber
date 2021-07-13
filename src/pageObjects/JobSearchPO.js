@@ -18,7 +18,8 @@ class JobsSearchPO {
     get locationInputBoxElement() { return $('input#location') }
     get searchBoxElement() { return $('[value="Search"]') }
     get searchResultElement() { return $('h1#searching') }
-
+    get searchZeroResultElement() { return $('//h2[text()="Location not found"]') }
+    
     /**
      * Defining Page Action.
      */
@@ -57,6 +58,11 @@ class JobsSearchPO {
     //Is search result displayed >@Return - True/False
     isSearchResultDisplayed() {
         return CommonKeywords.isElementDisplayed(this.jobDetailsLeftElement)
+    }
+
+     //Is search result displayed >@Return - True/False
+     isZeroSearchResultDisplayed() {
+        return CommonKeywords.isElementDisplayed(this.searchZeroResultElement)
     }
 }
 
