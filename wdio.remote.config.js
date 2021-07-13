@@ -12,7 +12,6 @@ exports.config = {
         browserName: 'chrome',
         acceptInsecureCerts: true,
         'goog:chromeOptions': {
-            binary: '/Users/sahil1s/Documents/WebdriverIO/WebdriverIO_Assignment/node_modules/chromedriver/lib/chromedriver/chromedriver',
             args: [
                 '--no-sandbox',
                 '--disable-infobars',
