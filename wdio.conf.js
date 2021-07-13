@@ -184,7 +184,7 @@ exports.config = {
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
       //  requireModule: [],
         // <boolean> invoke formatters without executing steps
-      //  dryRun: false,
+        dryRun: false,
         // <boolean> abort the run on first failure
       //  failFast: false,
         // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
@@ -198,11 +198,11 @@ exports.config = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tagExpression: '',
+        tagExpression: '@Negative',
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
-        ignoreUndefinedDefinitions: false
+        ignoreUndefinedDefinitions: true
     },
     
     //

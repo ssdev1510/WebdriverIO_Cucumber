@@ -1,4 +1,7 @@
+#Files which not need to be included while copying to docker container
 node_modules
 results
 allure-report
 reports
+readmeImages
+README.md

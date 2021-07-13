@@ -1,5 +1,7 @@
 const { config } = require('./wdio.conf.js')
-
+/*
+* Config file is created to run the tests on local machine.
+*/
 exports.config = {
     ...config,
     ...{
@@ -12,7 +14,7 @@ exports.config = {
             args: [
                 '--no-sandbox',
                 '--disable-infobars',
-                //'--headless',
+              //  '--headless',
                 '--disable-gpu',
                // '--window-size=1440,735'
             ],
