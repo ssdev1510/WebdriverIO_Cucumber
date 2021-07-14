@@ -15,28 +15,19 @@ WebdriverIO with Cucumber Framework using JavaScript Language.
 - Wdio.cong.js > Defines which Feature file, Step Definitions & Reports Plugins to include in test.
 - Step Definitions > Defines implementation of test scenarios defined in feature file.
 - Feature file > Defines the Test scenarios in gherkin language.
-- 3 Feature file: 
-    - JobsPage.feature
-      >Verify the different page components- Navigation Bar, Search Fields, Sector Lists .
-      >Verify 'Sign in' link go to its respective pages.
-      >Verify 'Create account' links go to its respective pages.
-
-    - NavigationBar.feature
-      >Verify the Main Navigation Bar and links navigating to correct page.
-
-    - JobSearch.feature
-     >Verify clicking on job sector show releveant result.
-     >Verify the job details page.
-     >Verify user is able to search job and page display relevant result.
-     >Verify user is see 0 result found when user enter incorrect data in job search filed. (Added Negative scenario)
+- 3 Feature files: 
+  - JobsPage.feature (1-Verify the different page components- Navigation Bar, Search Fields, Sector Lists., 2-Verify 'Sign in' link go to its respective pages. 3-Verify 'Create account' links go to its respective pages).
+  - NavigationBar.feature (1-Verify the Main Navigation Bar and links navigating to correct page).
+  - JobSearch.feature (1-Verify clicking on job sector show releveant result. , 2-Verify the job details page. , 3- Verify user is able to search job and page display relevant result. , 4-Verify user is see 0 result found when user enter incorrect data in job search filed (Added Negative scenario)).
 
 **Note:**
--Create framework using POM design pattern.
-  >Where pageObjects folder js files defines the page locators and page actions.
-  >Test scenarios & Assertion are defined in stepDefinitions folder.
-  >Business features are defined in feature folder.
 
--Currently, test are running only for Chrome browser.
+- Created framework using POM design pattern.
+  1. Where pageObjects folder js files defines the page locators and page actions.
+  2. Test scenarios & Assertion are defined in stepDefinitions folder.
+  3. Business features are defined in feature folder.
+
+- Currently, test are running only for Chrome browser, and yes this framework can be easily extend to more features.
 
 ## **Steps to run at your system/container:**
 **Prerequisite:** Node, Npm, Java, Git installation.
@@ -54,11 +45,11 @@ WebdriverIO with Cucumber Framework using JavaScript Language.
 - Run "cd WebdriverIO_Cucumber" to Go inside directory.
 - Run "sudo docker build -t wdio_test_image ." to Build docker image from Dockerfile.
 - Run "docker run --name wdio_container_name -it wdio_test_image /bin/bash" to Run docker container.
-- >Inside docker container > Run "npm run docker-test"
-- >Inside docker container > Check the output in console > then Run "exit" to come out from docker container.
+  - Inside docker container > Run "npm run docker-test"
+  - Inside docker container > Check the output in console > then Run "exit" to come out from docker container.
 - Run "docker rm wdio_container_name" to Remove docker container.
 - Run "docker rmi wdio_test_image" to  Remove docker image.
-- Currently report not getting generated through docker.doc
+- Currently report not getting generated through docker test.
 
 ## **Reports:** 
   **This will generate two visual reports:**
