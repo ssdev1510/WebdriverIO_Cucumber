@@ -20,7 +20,7 @@ Then(/^Verify correct list of jobs getting display$/, () => {
 });
 
 When(/^User click on job from the first job list$/, () => {
-	expectChai(JsPO.sectorJobListElements[1])
+	Click(JsPO.sectorJobListElements[1])
 });
 
 
