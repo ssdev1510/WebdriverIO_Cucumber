@@ -6,7 +6,7 @@
   "scripts": {
     "local-test": "npx wdio run ./wdio.local.config.js",
     "docker-test": "npx wdio run ./wdio.remote.config.js",
-    "allure-report": "node_modules/.bin/allure generate reports/allure-results --clean && allure open",
+    "allure-report": "allure generate reports/allure-results --clean && allure open",
     "test-report": "npm run local-test && npm run allure-report"
   },
   "repository": {
